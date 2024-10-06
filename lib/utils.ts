@@ -20,6 +20,10 @@ export const handleError = (error: unknown) => {
     // This is a string error message
     console.error(error);
     throw new Error(`Error: ${error}`);
+  } else if (error instanceof Object) {
+    // This is an object error
+    console.error(error);
+    throw new Error(`Error: ${JSON.stringify(error)}`);
   } else {
     // This is an unknown type of error
     console.error(error);
